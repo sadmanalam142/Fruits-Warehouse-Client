@@ -2,7 +2,7 @@
     {
         "name": "APPLE",
         "price": "3",
-        "description": "",
+        "description": "We have like the best apple in the town.",
         "quantity": "5000",
         "supplierName": "Mrs. Kyle",
         "img": "https://i.ibb.co/3YYgy53/apple.jpg"
@@ -10,7 +10,7 @@
     {
         "name": "BANANA",
         "price": "2",
-        "description": "",
+        "description": "We have like the best banana in the town.",
         "quantity": "8000",
         "supplierName": "Mr. Rovman",
         "img": "https://i.ibb.co/ZHm9XrR/banana.jpg"
@@ -18,7 +18,7 @@
     {
         "name": "MANGO",
         "price": "5",
-        "description": "",
+        "description": "We have like the best mango in the town.",
         "quantity": "6000",
         "supplierName": "Mrs. Ebiza",
         "img": "https://i.ibb.co/Dg7LQfJ/mango.jpg"
@@ -26,7 +26,7 @@
     {
         "name": "ORANGE",
         "price": "3",
-        "description": "",
+        "description": "We have like the best orange in the town.",
         "quantity": "7000",
         "supplierName": "Mr. Roman",
         "img": "https://i.ibb.co/HpgKxNg/orange.jpg"
@@ -34,7 +34,7 @@
     {
         "name": "PINEAPPLE",
         "price": "4",
-        "description": "",
+        "description": "We have like the best pineapple in the town.",
         "quantity": "5000",
         "supplierName": "Mr. Richard",
         "img": "https://i.ibb.co/MSq74rL/pineapple.jpg"
@@ -42,7 +42,7 @@
     {
         "name": "STAWBERY",
         "price": "5",
-        "description": "",
+        "description": "We have like the best stawbery in the town.",
         "quantity": "4000",
         "supplierName": "Mrs. Emma",
         "img": "https://i.ibb.co/tpmfPfk/stawbery.jpg"
@@ -50,7 +50,7 @@
     {
         "name": "GRAPES",
         "price": "1",
-        "description": "",
+        "description": "We have like the best grapes in the town.",
         "quantity": "9000",
         "supplierName": "Mrs. Goargia",
         "img": "https://i.ibb.co/nQWxVrP/grapes.jpg"
@@ -58,7 +58,7 @@
     {
         "name": "GUAVA",
         "price": "2",
-        "description": "",
+        "description": "We have like the best guava in the town.",
         "quantity": "5000",
         "supplierName": "Mr. Donal",
         "img": "https://i.ibb.co/PMKzXJb/guava.jpg"
@@ -66,7 +66,7 @@
     {
         "name": "JACKFRUIT",
         "price": "4",
-        "description": "",
+        "description": "We have like the best jackfruit in the town.",
         "quantity": "3000",
         "supplierName": "Mr. Mcman",
         "img": "https://i.ibb.co/LYSmdP8/jackfruit.jpg"

@@ -1,0 +1,13 @@
+.fruits-detail{
+     border: 1px solid orangered;
+    margin: 10px 0px;
+}
+
+.fruits-img{
+    width: 100%;
+}
+
+.update-btn{
+    border: 0;
+    margin-bottom: 1px;
+}
