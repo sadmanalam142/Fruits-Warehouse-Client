@@ -1,8 +1,14 @@
-# Getting Started with Create React App
+# Fruits Warehouse
+* This a website where you will find supplier supplying their fruits.you can also display your fruits by loging into the website.Later on you can update or delete your items.The website is fully responsite for both dekstop and mobile users. I hope you will have good experience visiting the site.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## This website's different features and functionality:
+* The website has a responsive navbar where you can toggle anywhere soon.
+* Website is responsive both for both dekstop and mobile users.
+* The website have been developed by react librery, so toogling is efficient with no reload activities. 
+* Once your authentication is done then you can display, update and delete your items if you want.
+* The website is fully secured so you don't need to worry abour your data.
 
 In the project directory, you can run:
 
