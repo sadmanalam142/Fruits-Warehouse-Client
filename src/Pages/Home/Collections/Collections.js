@@ -15,7 +15,7 @@ const Collections = () => {
     }, [])
     return (
         <div id='collection'>
-            <h1 className='text-center mt-5'>Fruits Collection</h1>
+            <h1 className='text-center mt-3'>Fruits Collection</h1>
             <div className='row container'>
                 {
                     collections.map(collection => <Collection
