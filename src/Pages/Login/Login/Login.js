@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -9,6 +9,7 @@ import Loading from '../../../Shared/Loading/Loading';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
+    const emailRef = useRef('');
     const [
         signInWithEmailAndPassword,
         user,
@@ -42,6 +43,10 @@ const Login = () => {
         const email = data.email;
         const password = data.password;
         await signInWithEmailAndPassword(email, password);
+    }
+
+    const handlePasswordReset = async () => {
+        const email = emailRef.current.value;
         await sendPasswordResetEmail(email);
         alert('Sent email');
     }
@@ -49,9 +54,14 @@ const Login = () => {
         <div>
             <h1 style={{ color: 'tomato' }} className='text-center mt-5'>Please Login</h1>
             <form className='d-flex flex-column w-50 mx-auto' onSubmit={handleSubmit(onSubmit)}>
-                <input className='my-2 rounded' type="email" {...register("email")} placeholder="Email" required />
+                <input ref={emailRef} className='my-2 rounded' type="email" {...register("email")} placeholder="Email" required />
+
                 <input className='my-2 rounded' type="password" {...register("password")} placeholder="Password" required />
+
+                <p>Forgot Password? <Link className='text-decoration-none text-danger' onClick={handlePasswordReset} to="/">Reset Password</Link></p>
+
                 <p className='text-danger'>{errorMessage}</p>
+
                 <input style={{ backgroundColor: 'tomato' }} className='d-block w-50 mx-auto rounded' type="submit" value="Login" />
             </form>
             <p className='text-center'>New to Fruits Warehouse? <Link to="/register" className='pe-auto text-decoration-none text-danger'>Please Register</Link></p>

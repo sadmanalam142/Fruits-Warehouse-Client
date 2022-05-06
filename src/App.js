@@ -8,6 +8,8 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Blogs from './Pages/Blogs/Blogs';
 import Inventory from './Pages/Inventory/Inventory';
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import ManageItems from './Pages/ManageItems/ManageItems';
 
 function App() {
   return (
@@ -19,7 +21,16 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        <Route path='/inventory/:id' element={<Inventory></Inventory>}></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <Inventory></Inventory>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manage' element={
+          <RequireAuth>
+            <ManageItems></ManageItems>
+          </RequireAuth>
+        }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

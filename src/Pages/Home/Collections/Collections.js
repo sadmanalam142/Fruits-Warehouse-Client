@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import useCollection from '../../../CustomHooks/UseCollections';
 import Collection from '../Collection/Collection';
 
 const Collections = () => {
-    const [collections, setCollections] = useState([]);
-
-    useEffect(() => {
-        const url = `http://localhost:5000/fruits`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                const sixItems = data.slice(0, 6)
-                setCollections(sixItems)
-            })
-    }, [])
+    const [collections, setCollections] = useCollection();
     return (
         <div id='collection' className='container'>
             <h1 style={{color: 'tomato'}} className='text-center mt-3'>Fruits Collection</h1>
             <div className='row container'>
                 {
-                    collections.map(collection => <Collection
+                    collections.slice(0, 6).map(collection => <Collection
                         key={collection._id}
                         collection={collection}
                     ></Collection>)
