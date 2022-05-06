@@ -14,8 +14,8 @@ const Collections = () => {
             })
     }, [])
     return (
-        <div id='collection'>
-            <h1 className='text-center mt-3'>Fruits Collection</h1>
+        <div id='collection' className='container'>
+            <h1 style={{color: 'tomato'}} className='text-center mt-3'>Fruits Collection</h1>
             <div className='row container'>
                 {
                     collections.map(collection => <Collection

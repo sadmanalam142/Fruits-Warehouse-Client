@@ -1,6 +1,6 @@
 .fruits-detail{
      border: 1px solid orangered;
-    margin: 10px 0px;
+    margin: 15px 0px;
 }
 
 .fruits-img{
@@ -8,6 +8,6 @@
 }
 
 .update-btn{
-    border: 0;
-    margin-bottom: 1px;
+   border: 1px solid tomato;
+   margin-bottom: 0px;
 }
