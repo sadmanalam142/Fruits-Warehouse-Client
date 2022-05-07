@@ -1,15 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCollection from '../../CustomHooks/UseCollections';
-import useItems from '../../CustomHooks/UseItems';
 import Collection from '../Home/Collection/Collection';
 
 const ManageItems = () => {
-    const [collections] = useCollection();
+    const [collections, setCollections] = useCollection();
     const navigate = useNavigate();
 
     const handleNavigate = () => {
         navigate('/addItems')
+    }
+
+    const handleDelete = id => {
+        const process = window.confirm('Are you sure?');
+        if (process) {
+            const url = `http://localhost:5000/fruit/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = collections.filter(collection => collection._id !== id);
+                    setCollections(remaining)
+                })
+        }
     }
 
     return (
@@ -22,7 +37,7 @@ const ManageItems = () => {
                         collection={collection}
                     >
                         <div className='d-flex '>
-                            <button className='rounded update-btn bg-danger d-block w-50 mx-auto'>Delete</button>
+                            <button onClick={() => handleDelete(collection._id)} className='rounded update-btn bg-danger d-block w-50 mx-auto'>Delete</button>
                             <button onClick={handleNavigate} className='rounded update-btn bg-success d-block w-50 mx-auto ms-2'>AddItem</button>
                         </div>
                     </Collection>)

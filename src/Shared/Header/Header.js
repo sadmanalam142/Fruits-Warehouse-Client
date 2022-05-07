@@ -12,7 +12,7 @@ const Header = () => {
         signOut(auth);
     }
     return (
-        <Navbar style={{ backgroundColor: 'tomato' }} collapseOnSelect expand="lg" variant="dark">
+        <Navbar className='sticky-top' style={{ backgroundColor: 'tomato' }} collapseOnSelect expand="lg" variant="dark">
             <Container>
                 <Navbar.Brand as={Link} to="/home">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -23,17 +23,16 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         {
-                            user &&
+                            user && <>
                             <Nav.Link as={Link} to="/manage">
                                 Manage Items
                             </Nav.Link>
-                        }
-                        {
-                            user &&
                             <Nav.Link as={Link} to="/addItems">
                                 Add Items
                             </Nav.Link>
+                            </>
                         }
+                        
                         {
                             user ?
                                 <Nav.Link onClick={handleSignout} as={Link} to="/">

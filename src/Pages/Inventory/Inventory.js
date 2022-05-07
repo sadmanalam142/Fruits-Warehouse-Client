@@ -14,6 +14,15 @@ const Inventory = () => {
             <p>Quantity: {fruits.quantity} pieces</p>
             <p>{fruits.description}</p>
             <h6>Seller: {fruits.supplierName}</h6>
+
+            <button className='bg-success rounded'>Delevired</button>
+
+            <div className='my-3'>
+                <input type="text" name="number" id="" />
+                <br />
+                <button className='bg-success rounded'>Add quantity</button>
+            </div>
+
             <button className='bg-warning rounded'><Link className='text-decoration-none text-black' to="/manage">Manage Inventories</Link></button>
         </div>
     );
