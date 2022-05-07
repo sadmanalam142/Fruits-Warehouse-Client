@@ -15,7 +15,7 @@ const Collections = () => {
             <h1 style={{ color: 'tomato' }} className='text-center mt-3'>Fruits Collection</h1>
             <div className='row container'>
                 {
-                    collections.slice(0, 6).map(collection => <Collection
+                    collections.map(collection => <Collection
                         key={collection._id}
                         collection={collection}
                     >
