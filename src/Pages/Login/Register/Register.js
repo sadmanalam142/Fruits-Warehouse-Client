@@ -41,6 +41,7 @@ const Register = () => {
         const email = data.email;
         const password = data.password;
        await createUserWithEmailAndPassword(email, password);
+       alert('User Created')
         await updateProfile({ displayName: name });
           alert('Updated profile');
     }

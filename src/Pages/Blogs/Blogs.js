@@ -38,7 +38,7 @@ const Blogs = () => {
                 </div>
             </div>
             <h3>Q.3  What is the purpose of jwt and how does it work?</h3>
-            <p>A. JWT or JSON Web Token, is an open standard which is use to secure data from both clint and server-side. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued. A JWT is a string made up of three parts, separated by dots, and serialized using base64. Once decoded, we get two JSON strings these are 1. the header and the payload and 2. the signature. By this we can identify who the user is asking for data. In short, JWTs are used as a secure way to authenticate users and share information.</p>
+            <p className='container'>A. JWT or JSON Web Token, is an open standard which is use to secure data from both clint and server-side. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued. A JWT is a string made up of three parts, separated by dots, and serialized using base64. Once decoded, we get two JSON strings these are 1. the header and the payload and 2. the signature. By this we can identify who the user is asking for data. In short, JWTs are used as a secure way to authenticate users and share information.</p>
         </div>
     );
 };

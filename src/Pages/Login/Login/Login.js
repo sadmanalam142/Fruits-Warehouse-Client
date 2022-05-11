@@ -43,6 +43,7 @@ const Login = () => {
         const email = data.email;
         const password = data.password;
         await signInWithEmailAndPassword(email, password);
+        alert('Login successfull')
     }
 
     const handlePasswordReset = async () => {

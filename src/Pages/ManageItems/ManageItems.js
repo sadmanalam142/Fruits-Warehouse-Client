@@ -7,14 +7,18 @@ const ManageItems = () => {
     const [collections, setCollections] = useCollection();
     const navigate = useNavigate();
 
-    const handleNavigate = () => {
+    const handleAddNavigate = () => {
         navigate('/addItems')
+    }
+
+    const handleUpdateNavigate = (id) => {
+        navigate(`/inventory/${id}`)
     }
 
     const handleDelete = id => {
         const process = window.confirm('Are you sure?');
         if (process) {
-            const url = `http://localhost:5000/fruit/${id}`;
+            const url = `https://protected-forest-05796.herokuapp.com/fruit/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -37,8 +41,11 @@ const ManageItems = () => {
                         collection={collection}
                     >
                         <div className='d-flex '>
-                            <button onClick={() => handleDelete(collection._id)} className='rounded update-btn bg-danger d-block w-50 mx-auto'>Delete</button>
-                            <button onClick={handleNavigate} className='rounded update-btn bg-success d-block w-50 mx-auto ms-2'>AddItem</button>
+                            <button style={{ height: '30px' }} onClick={() => handleDelete(collection._id)} className='rounded update-btn bg-danger d-block w-25 mx-auto'>Delete</button>
+
+                            <button style={{ height: '30px' }} onClick={() => handleUpdateNavigate(collection._id)} className='rounded update-btn bg-warning d-block w-25 mx-auto ms-2 me-2'>Update</button>
+
+                            <button style={{ height: '30px' }} onClick={handleAddNavigate} className='rounded update-btn bg-success d-block w-50 mx-auto'>Add New Item</button>
                         </div>
                     </Collection>)
                 }

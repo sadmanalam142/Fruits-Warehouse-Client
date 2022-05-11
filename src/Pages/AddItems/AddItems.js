@@ -1,11 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import auth from '../../Firebase.init';
 
 const AddItems = () => {
+    const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        const url = `http://localhost:5000/fruits`;
+        const url = `https://protected-forest-05796.herokuapp.com/fruits`;
         fetch (url, {
             method: "POST",
             headers: {
@@ -16,12 +19,15 @@ const AddItems = () => {
         .then(res => res.json())
         .then(result => {
             console.log(result);
+            alert('Item Added')
         })
     }
     return (
         <div>
             <h1 className='text-center'>Add Item</h1>
             <form className='d-flex flex-column w-50 mx-auto' onSubmit={handleSubmit(onSubmit)}>
+                <input className='my-2 rounded' type="email" {...register("email")} placeholder="Your email" value={user?.email} required />
+
                 <input className='my-2 rounded' type="text" {...register("name")} placeholder="Name" required />
 
                 <input className='my-2 rounded' type="number" {...register("price")} placeholder="Price" required />
