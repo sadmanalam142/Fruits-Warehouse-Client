@@ -1,20 +1,35 @@
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import Collection from '../Home/Collection/Collection';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [items, setItems] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
-        const getItems = () => {
+        const getItems = async () => {
             const email = user?.email;
             const url = `https://protected-forest-05796.herokuapp.com/fruits?email=${email}`;
-            fetch(url)
-                .then(res => res.json())
-                .then(data => setItems(data))
+            try{
+                const {data} = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                setItems(data);
+            }
+            catch(error){
+                if(error.response.status === 401 || error.response.status === 401){
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
         }
         getItems();
     }, [user])

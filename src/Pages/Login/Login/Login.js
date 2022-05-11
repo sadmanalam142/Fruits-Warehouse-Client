@@ -6,6 +6,7 @@ import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../../Shared/Loading/Loading';
+import axios from 'axios';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -31,19 +32,21 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
-
     if (error || resetError) {
         errorMessage = error.message;
     }
 
-    const onSubmit = async data => {
+    const onSubmit = data => {
         const email = data.email;
         const password = data.password;
-        await signInWithEmailAndPassword(email, password);
-        alert('Login successfull')
+        signInWithEmailAndPassword(email, password);
+        const getToken = async () => {
+            const { data } = await axios.post('https://protected-forest-05796.herokuapp.com/login', { email });
+            localStorage.setItem('accessToken', data.accessToken);
+        }
+        getToken();
+        alert('Login successfull');
+        navigate(from, { replace: true });
     }
 
     const handlePasswordReset = async () => {
