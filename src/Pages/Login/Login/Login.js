@@ -36,6 +36,10 @@ const Login = () => {
         errorMessage = error.message;
     }
 
+    if(user){
+        navigate(from, { replace: true });
+    }
+
     const onSubmit = data => {
         const email = data.email;
         const password = data.password;
@@ -46,7 +50,6 @@ const Login = () => {
         }
         getToken();
         alert('Login successfull');
-        navigate(from, { replace: true });
     }
 
     const handlePasswordReset = async () => {
