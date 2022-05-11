@@ -4,7 +4,7 @@ const useCollection = () => {
     const [collections, setCollections] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/fruits`
+        const url = `https://protected-forest-05796.herokuapp.com/fruits`
         fetch(url)
             .then(res => res.json())
             .then(data => setCollections(data))

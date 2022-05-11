@@ -18,7 +18,7 @@ const ManageItems = () => {
     const handleDelete = id => {
         const process = window.confirm('Are you sure?');
         if (process) {
-            const url = `http://localhost:5000/fruit/${id}`;
+            const url = `https://protected-forest-05796.herokuapp.com/fruit/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

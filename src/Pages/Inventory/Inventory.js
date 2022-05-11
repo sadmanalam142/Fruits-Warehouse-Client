@@ -17,7 +17,7 @@ const Inventory = () => {
         const quantity = fruits.quantity - 1;
 
         const updatedQuantity = { quantity };
-        const url = `http://localhost:5000/fruit/${id}`;
+        const url = `https://protected-forest-05796.herokuapp.com/fruit/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {
