@@ -15,7 +15,7 @@ const MyItems = () => {
 
         const getItems = async () => {
             const email = user?.email;
-            const url = `https://protected-forest-05796.herokuapp.com/fruits?email=${email}`;
+            const url = `http://localhost:5000/fruit?email=${email}`;
             try{
                 const {data} = await axios.get(url, {
                     headers: {
@@ -25,8 +25,9 @@ const MyItems = () => {
                 setItems(data);
             }
             catch(error){
-                if(error.response.status === 401 || error.response.status === 401){
-                    signOut(auth);
+                console.log(error);
+                if(error.message === "Request failed with status code 403" || error.message === "Request failed with status code 401"){
+                    signOut(auth)
                     navigate('/login')
                 }
             }

@@ -41,7 +41,7 @@ const Login = () => {
         const password = data.password;
         signInWithEmailAndPassword(email, password);
         const getToken = async () => {
-            const { data } = await axios.post('https://protected-forest-05796.herokuapp.com/login', { email });
+            const { data } = await axios.post('http://localhost:5000/login', { email });
             localStorage.setItem('accessToken', data.accessToken);
         }
         getToken();

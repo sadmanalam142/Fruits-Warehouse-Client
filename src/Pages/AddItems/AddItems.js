@@ -8,7 +8,7 @@ const AddItems = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        const url = `https://protected-forest-05796.herokuapp.com/fruits`;
+        const url = `http://localhost:5000/fruits`;
         fetch (url, {
             method: "POST",
             headers: {
